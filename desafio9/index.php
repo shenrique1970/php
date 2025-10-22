@@ -11,17 +11,20 @@
         <h1>Médias Aritméticas</h1>
     </header>
     <main>
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+        <!--Exibe o caminho do arquivo atual, útil para definir a ação do formulário.
+        Isso garante que o formulário será enviado para a mesma página que o usuário está acessando.-->
+        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="get">
             
             <label for="numero1">1º valor</label>
             <input type="number" name="numero1" value="<?= $numero1 ?>">
             <label for="peso1">1ºPeso</label>
             <input type="number" name="peso1" value="<?= $peso1 ?>">
-
-            <label for="numero2">2º valor</label>
+            <label for="numero2"> 2º valor</label>
             <input type="number" name="numero2" value="<?= $numero2 ?>">
-            <label for="peso2">2º Peso</label>
+            <label for="peso2">2ºPeso</label>
             <input type="number" name="peso2" value="<?= $peso2 ?>">
+
+            
 
             <input type="submit" value="Enviar">
 
@@ -29,13 +32,15 @@
     </main>
     <section>
         <?php 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            // Verifica se o formulário foi enviado usando o método POST.
+            // Isso garante que os dados estão sendo recebidos corretamente após o envio do formulário.
             // https://www.php.net/manual/en/language.operators.arithmetic.php
             // https://www.php.net/manual/en/function.number-format.php
-            $n1 = (float) $_POST["numero1"];
-            $p1 = (float) $_POST["peso1"];
-            $n2 = (float) $_POST["numero2"];
-            $p2 = (float) $_POST["peso2"];
+            $n1 = (float) $_GET["numero1"];
+            $p1 = (float) $_GET["peso1"];
+            $n2 = (float) $_GET["numero2"];
+            $p2 = (float) $_GET["peso2"];
 
             echo "<h2>Resultado final</h2>";
             $mediaAritmetica = ($n1 + $n2) / 2;
