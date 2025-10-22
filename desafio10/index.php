@@ -15,11 +15,10 @@
     <main>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
             <label for="ano">Informe o ano que nasceu</label>
-            <input type="number" name="ano">
-            <span>Ano atual <b><?php $anoAtual = date("Y");
-                                echo $anoAtual; ?></b></span>
+            <input type="number" name="ano" value="<?= $ano ?? '' ?>">
+            <span>Ano atual <b><?php $anoAtual = date("Y");echo $anoAtual; ?></b></span>
             <label for="anoFuturo">Quer saber sua idade em que ano</label>
-            <input type="number" name="anoFuturo">
+            <input type="number" name="anoFuturo" value="<?= $anoFuturo ?>">
             <input type="submit" value="Enviar">
         </form>
     </main>
@@ -32,6 +31,9 @@
             $idadeFutura = $anoFuturo - $anoNascimento;
 
             echo "Você nasceu em $anoNascimento e tem $idade anos.<br>";
+            if ($anoFuturo < $anoAtual) {
+                echo "No ano de $anoFuturo sua idade era $idadeFutura anos.";
+            } else
             echo "Em $anoFuturo você terá $idadeFutura anos.";
         }
         ?>
