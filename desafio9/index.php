@@ -10,6 +10,12 @@
     <header>
         <h1>Médias Aritméticas</h1>
     </header>
+    <?php 
+        $n1 = (float) $_GET["numero1"];
+        $p1 = (float) $_GET["peso1"];
+        $n2 = (float) $_GET["numero2"];
+        $p2 = (float) $_GET["peso2"];
+    ?>
     <main>
         <!--Exibe o caminho do arquivo atual, útil para definir a ação do formulário.
         Isso garante que o formulário será enviado para a mesma página que o usuário está acessando.-->
@@ -23,13 +29,10 @@
             <input type="number" name="numero2" value="<?= $numero2 ?>">
             <label for="peso2">2ºPeso</label>
             <input type="number" name="peso2" value="<?= $peso2 ?>">
-
-            
-
             <input type="submit" value="Enviar">
-
         </form>
     </main>
+
     <section>
         <?php 
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -37,25 +40,16 @@
             // Isso garante que os dados estão sendo recebidos corretamente após o envio do formulário.
             // https://www.php.net/manual/en/language.operators.arithmetic.php
             // https://www.php.net/manual/en/function.number-format.php
-            $n1 = (float) $_GET["numero1"];
-            $p1 = (float) $_GET["peso1"];
-            $n2 = (float) $_GET["numero2"];
-            $p2 = (float) $_GET["peso2"];
-
-            echo "<h2>Resultado final</h2>";
             $mediaAritmetica = ($n1 + $n2) / 2;
-            echo "A média aritmética entre " . $n1 . " e " . $n2 . " é igual a " . number_format($mediaAritmetica,2,",",".") . "<br>";
-            
-            // https://www.todamateria.com.br/media-ponderada/
-            if (($p1 + $p2) == 0) {
-                echo "A soma dos pesos não pode ser zero para o cálculo da média ponderada.<br>";
-                return;
-            }
             $mediaPonderada = (($n1 * $p1) + ($n2 * $p2)) / ($p1 + $p2);
-            echo "A média ponderada entre " . $n1 . " e " . $n2 . " é igual a " . number_format($mediaPonderada,2,",",".") . "<br>";
         }
-        
         ?>
+        <h2>Cálculo das médias.</h2>
+        <p>Analisando os valores <?= $n1 ?> e <?= $n2 ?>:</p>
+        <ul>
+            <li>A média aritimética simples entre os valores <?= $n1 ?> e <?= $n2 ?> é igual a <?= number_format($mediaAritmetica,2,",",".") ?>.</li>
+            <li>A média aritimética ponderada com pesos <?= $p1 ?> e <?= $p2 ?> é igual a <?= number_format($mediaPonderada,2,",",".") ?>.</li>
+        </ul>
     </section>
 </body>
 </html>
