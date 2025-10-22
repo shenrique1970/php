@@ -11,6 +11,7 @@
         <h1>Salário</h1>
     </header>
     <main>
+        <!--$_SERVER['PHP_SELF'] envia o formulario pra ele mesmo -->
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
             <label for="renda">Informe o salário?</label>
             <input type="number" name="renda" step="0.01">
