@@ -15,6 +15,12 @@ https://www.php.net/manual/pt_BR/language.expressions.php
 # Formulários.
 https://www.php.net/manual/pt_BR/tutorial.forms.php
 
+# intdiv
+https://www-w3schools-com.translate.goog/php/php_ref_math.asp?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
+
+# intval
+https://www.w3schools.com/php/func_var_intval.asp
+
 ## Desafios de código.
 
 - [Antecessor e Sucessor](https://github.com/shenrique1970/php/tree/main/dasafio1)
