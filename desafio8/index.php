@@ -25,9 +25,9 @@
             // https://www.php.net/manual/en/function.number-format.php
             $numero = (float) $_POST["numero"];
             echo "Analisando o número " . $numero . "<br>";
-            $raiz = sqrt($numero);
+            $raiz = sqrt($numero);    // ou usar $numero ** (1/2);
             echo "A raiz quadrada de " . $numero . " é igual a " . number_format($raiz,3,",",".") . "<br>";
-            $cubica = pow($numero, 1/3);
+            $cubica = pow($numero, 1/3);    // ou usar $numero ** (1/3);
             echo "A raiz cúbica de " . $numero . " é igual a " . number_format($cubica,3,",",".") . "<br>";
         ?>  
     </section>
