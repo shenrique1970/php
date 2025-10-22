@@ -1,0 +1,33 @@
+# PHP online.
+https://onlinephp.io/
+
+https://www.php.net/
+
+# Variaveis.
+https://www.php.net/manual/pt_BR/language.types.intro.php
+
+# Strings.
+https://www.php.net/manual/en/language.types.string.php
+
+# Expressões.
+https://www.php.net/manual/pt_BR/language.expressions.php
+
+# Formulários.
+https://www.php.net/manual/pt_BR/tutorial.forms.php
+
+## Desafios de código.
+
+- [Antecessor e Sucessor](https://github.com/shenrique1970/php/tree/main/dasafio1)
+- [Sorteador de números](https://github.com/shenrique1970/php/tree/main/desafio2)
+- [Conversor de moedas simples](https://github.com/shenrique1970/php/tree/main/desafio3)
+- [Conversor de dólar consultando API](https://github.com/shenrique1970/php/tree/main/desafio4)
+- [Analisando um número Real](https://github.com/shenrique1970/php/tree/main/desafio5)
+- [Analisando uma divisão](https://github.com/shenrique1970/php/tree/main/desafio6)
+- [Salário Mínimo](https://github.com/shenrique1970/php/tree/main/desafio7)
+- [Raízes de um número](https://github.com/shenrique1970/php/tree/main/desafio8)
+- [Médias Aritméticas](https://github.com/shenrique1970/php/tree/main/desafio9)
+- [Cálculo de Idade](https://github.com/shenrique1970/php/tree/main/desafio10)
+- [Reajustando preços](https://github.com/shenrique1970/php/tree/main/desafio11)
+- [Calculadora de tempo](https://github.com/shenrique1970/php/tree/main/desafio12)
+- [Caixa Eletrônico](https://github.com/shenrique1970/php/tree/main/desafio13)
+
