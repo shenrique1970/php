@@ -24,18 +24,18 @@
     </main>
     <article>
         <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $anoNascimento = (int) $_POST["ano"];
-            $anoFuturo = (int) $_POST["anoFuturo"];
-            $idade = $anoAtual - $anoNascimento;
-            $idadeFutura = $anoFuturo - $anoNascimento;
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $anoNascimento = (int) $_POST["ano"];
+                $anoFuturo = (int) $_POST["anoFuturo"];
+                $idade = $anoAtual - $anoNascimento;
+                $idadeFutura = $anoFuturo - $anoNascimento;
 
-            echo "Você nasceu em $anoNascimento e tem $idade anos.<br>";
-            if ($anoFuturo < $anoAtual) {
-                echo "No ano de $anoFuturo sua idade era $idadeFutura anos.";
-            } else
-            echo "Em $anoFuturo você terá $idadeFutura anos.";
-        }
+                echo "<p>Você nasceu em $anoNascimento e tem $idade anos.</p><br>";
+                if ($anoFuturo < $anoAtual) {
+                    echo "<p>No ano de $anoFuturo sua idade era $idadeFutura anos.</p>";
+                } else
+                echo "<p>Em $anoFuturo você terá $idadeFutura anos.</p>";
+            }
         ?>
     </article>
 </body>
