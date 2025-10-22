@@ -3,7 +3,7 @@ https://onlinephp.io/
 
 https://www.php.net/
 
-# Variaveis.
+# Variáveis.
 https://www.php.net/manual/pt_BR/language.types.intro.php
 
 # Strings.
