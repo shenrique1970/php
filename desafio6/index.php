@@ -31,6 +31,7 @@
         }
     ?>
     <main>
+        <!--?= htmlspecialchars($_SERVER['PHP_SELF']) envia o formulária pra elel mesmo-->
         <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="get">
             <label for="v1">Dividendo:</label>
             <input type="number" id="v1" name="v1" min="0" value="<?= $valor1 ?>" required>
