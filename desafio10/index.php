@@ -13,7 +13,7 @@
         <h1>Cálculo de Idade.</h1>
     </header>
     <main>
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+        <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
             <label for="ano">Informe o ano que nasceu</label>
             <input type="number" name="ano" value="<?= $ano ?? '' ?>">
             <span>Ano atual <b><?php $anoAtual = date("Y");echo $anoAtual; ?></b></span>
