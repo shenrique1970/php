@@ -40,11 +40,21 @@
         <p>Digitou <strong><?= number_format($total, 3, ",", ".") ?></strong> segundos.</p>
         <article>
             <ul>
-                <li> [<?= $semana?>] Semanas</li>
-                <li> [<?= $dias?>] Dias</li>
-                <li> [<?= $horas?>] Horas</li>
-                <li> [<?= $minutos?>] Minutos</li>
-                <li> [<?= $segundos?>] Segundos</li>
+                <?php if ($semana > 0) { ?>
+                    <li> [<?= $semana?>] Semanas</li>
+                <?php } ?>
+                <?php if ($dias > 0) { ?>
+                    <li> [<?= $dias?>] Dias</li>
+                <?php } ?>
+                <?php if ($horas > 0) { ?>
+                    <li> [<?= $horas?>] Horas</li>
+                <?php } ?>
+                <?php if ($minutos > 0) { ?>
+                    <li> [<?= $minutos?>] Minutos</li>
+                <?php } ?>
+                <?php if ($segundos > 0) { ?>
+                    <li> [<?= $segundos?>] Segundos</li>
+                <?php } ?>
             </ul>
         </article>
 
