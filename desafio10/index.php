@@ -22,22 +22,25 @@
             <input type="submit" value="Enviar">
         </form>
     </main>
-    <article>
+    <section>
         <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $anoNascimento = (int) $_POST["ano"];
                 $anoFuturo = (int) $_POST["anoFuturo"];
                 $idade = $anoAtual - $anoNascimento;
                 $idadeFutura = $anoFuturo - $anoNascimento;
-
-                echo "<p>Você nasceu em $anoNascimento e tem $idade anos.</p><br>";
-                if ($anoFuturo < $anoAtual) {
-                    echo "<p>No ano de $anoFuturo sua idade era $idadeFutura anos.</p>";
-                } else
-                echo "<p>Em $anoFuturo você terá $idadeFutura anos.</p>";
             }
         ?>
-    </article>
+        <article>
+            <h2>Resultados</h2>
+            <p>Você nasceu em <?= $anoNascimento ?> e tem <?= $idade ?> anos.</p>
+            <?php if ($anoFuturo < $anoAtual) { ?>
+            <p>No ano de <?= $anoFuturo ?> sua idade era <?= $idadeFutura ?> anos.</p>
+            <?php } else { ?>
+            <p>Em <?= $anoFuturo ?> você terá <?= $idadeFutura ?> anos.</p>
+            <?php } ?>
+        </article>
+    </section>
 </body>
 
 </html>
