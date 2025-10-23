@@ -13,6 +13,14 @@
         <h1>Reajustador de preços</h1>
     </header>
     <!--https://www.w3schools.com/tags/att_input_type_range.asp-->
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $preco = (float) $_POST["preco"];
+        $percentual = (float) $_POST["volume"];
+        $valorAjuste = $preco * ($percentual / 100);
+        $precoAjustado = $preco + $valorAjuste;
+    }
+    ?>
     <main>
         <!--htmlspecialchars() para evitar vulnerabilidades XSS:
         é uma boa prática de segurança para proteger seu formulário 
@@ -28,19 +36,11 @@
         </form>
     </main>
     <article>
-        <?php if ($_SERVER["REQUEST_METHOD"] == "POST"): ?>
-            <?php
-            $preco = (float) $_POST["preco"];
-            $percentual = (float) $_POST["volume"];
-            $valorAjuste = $preco * ($percentual / 100);
-            $precoAjustado = $preco + $valorAjuste;
-            ?>
             <p>
                 O produto que custava <strong>R$ <?= number_format($preco, 2, ",", ".") ?></strong>,
                 com o reajuste de <strong><?= number_format($percentual, 0, ",", ".") ?>%</strong>,
                 vai passar a custar <strong>R$ <?= number_format($precoAjustado, 2, ",", ".") ?></strong>.
             </p>
-        <?php endif; ?>
     </article>
 </body>
 
