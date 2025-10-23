@@ -20,25 +20,16 @@
             <input type="submit" value="Enviar">
         </form>
     </section>
-    <section>  
-        <!--Mostrar código-->    
+    <section>
+        <!--Mostrar código-->
         <pre><code>
-            if (isset($_GET["numero"])) {
-                $numero = (int) $_GET["numero"];
-                $antes = $numero - 1;
-                $depois = $numero + 1;
-                echo "Antecessor: $antes | Número digitado: $numero | Sucessor: $depois.";
-            }
+            
+            echo "Número digitado: " . $numero;
+            echo "Número anterior: " . ($numero - 1);
+            echo "Número posterior: " . ($numero + 1);
+            
         </code></pre>
-        <h3>Ou</h3>
-        <pre><code>
-            if (isset($_GET["numero"])) {
-                $numero = (int) $_GET["numero"];
-                echo "Número digitado: " . $numero; 
-                echo "Número anterior: " . ($numero - 1);
-                echo "Número posterior: " . ($numero + 1);
-            }
-        </code></pre>
+        
     </section>
 
 </body>
