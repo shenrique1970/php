@@ -12,7 +12,7 @@
     </header>
     <main>
         <!--$_SERVER['PHP_SELF'] envia o formulario pra ele mesmo -->
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+        <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
             <label for="renda">Informe o salário?</label>
             <input type="number" name="renda" step="0.01">
             <label for="salario">Informe o salário minimo vigente?</label>
