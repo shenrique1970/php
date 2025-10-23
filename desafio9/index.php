@@ -19,7 +19,7 @@
     <main>
         <!--Exibe o caminho do arquivo atual, útil para definir a ação do formulário.
         Isso garante que o formulário será enviado para a mesma página que o usuário está acessando.-->
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="get">
+        <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
             
             <label for="numero1">1º valor</label>
             <input type="number" name="numero1" value="<?= $numero1 ?>">
