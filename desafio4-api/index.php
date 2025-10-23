@@ -12,16 +12,11 @@
     </header>
     <section>
         <form action="conv.php" method="get">
-            <!--
-                   <label for="valor">Cotação do dolar</label>
-                   <input type="number" name="cotacao" id="idcotacao"> 
-            -->
             <label for="valor">Quanto vai converter?</label>
             <input type="number" name="valor" id="idvalor" step="0.01">
             <input type="submit" value="Enviar">
         </form>
         
-    </section>
-    
+    </section> 
 </body>
 </html>
