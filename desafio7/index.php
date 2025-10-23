@@ -21,23 +21,25 @@
             <input type="submit" value="Enviar">
         </form>
     </main>
+    <?php 
+        $renda = (int) $_POST["renda"] ?? 0;
+        $sal = (int) $_POST["salario"];
+    ?>
     <section>
         <h2>Resultado final</h2>
         <?php 
+            $quant = intdiv($renda, $sal); // ou usar (int) ($renda / $sal);
+            $dif = $renda % $sal;    // o resto da divião é a diferença de salário.
+            
             if (!$_POST) {
                 echo "<span>Aguardando o envio dos dados...</span>";
                 return;
-            }
-            $renda = (int) $_POST["renda"] ?? 0;
-            // informe do valora do salário vigente.
-            $sal = (int) $_POST["salario"];
-            echo "<span>Considerando o salário minimo de <b>R\$ " . number_format($sal, 2, ",", ".") . "</b></span><br>";
-            // não pode ser número quebrado ou divisão real. usar divisão inteira.
-            $quant = intdiv($renda, $sal); // ou usar (int) ($renda / $sal);
-            $dif = $renda % $sal;    // o resto da divião é a diferença de salário.
-            echo "Quem recebe R\$ " . number_format($renda,1,",",".") . " recebe  " . intval(number_format($quant,1,",",".")) . " salário(s) mínimo(s)." ;
-            echo " Mais a diferença de R\$ " . number_format($dif,1,",",".") . "<br>";
-        ?>    
+            }    
+        ?>  
+        <article>
+           <span>Considerando o salário minimo de <b>R$ <?= number_format($sal, 2, ",", ".") ?></b></span>
+            <span>Quem recebe R$ <?= number_format($renda, 2, ",", ".") ?> recebe <?= $quant ?> salário(s) mínimo(s) mais a diferença de R$ <?= number_format($dif, 2, ",", ".") ?></span> 
+        </article>  
     </section>
 </body>
 </html>
