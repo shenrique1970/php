@@ -12,42 +12,43 @@
     <header>
         <h1>Calculadora de tempo</h1>
     </header>
-
+    <!--https://brasilescola.uol.com.br/matematica/o-controle-tempo-suas-unidades-medida.htm-->
+    <?php
+        $total = $_REQUEST["segundos"] ?? 0; 
+    ?>
     <main>
-        <?php //htmlspecialchars($_SERVER['PHP_SELF']) " method="post">?>
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+        <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
             <label for="segundos">Qual o total de segundo?</label>
-            <input type="number" name="segundos">
-            <input type="submit" value="Enviar">
+            <input type="number" name="segundos" id="seg" min="0" step="1" value="<?= $total ?>">
+            <input type="submit" value="Calcular">
         </form>
     </main>
+    <?php 
+        // https://www.youtube.com/watch?v=qEsWGf_Es3A&list=PLHz_AreHm4dlFPrCXCmd5g92860x_Pbr_&index=43
+        $sobra = $total;
+        $semana = (int) ($sobra / 604_800);
+        $sobra = $sobra % 604_800;
+        $dias = (int) ($sobra / 86400);
+        $sobra = $sobra % 86400;
+        $horas = (int) ($sobra / 3600);
+        $sobra = $sobra % 3600;
+        $minutos = (int) ($sobra / 60);
+        $segundos = (int) ($sobra % 60);
+    ?>
+    <section>
+        <h2>Totalizando tudo.</h2>
+        <p>Digitou <strong><?= number_format($total, 3, ",", ".") ?></strong> segundos.</p>
+        <article>
+            <ul>
+                <li> [<?= $semana?>] Semanas</li>
+                <li> [<?= $dias?>] Dias</li>
+                <li> [<?= $horas?>] Horas</li>
+                <li> [<?= $minutos?>] Minutos</li>
+                <li> [<?= $segundos?>] Segundos</li>
+            </ul>
+        </article>
 
-    <article>
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $segundos = (int) $_POST["segundos"];
-            $minutos = floor($segundos / 60);
-            $horas = floor($minutos / 60);
-            $dias = floor($horas / 24);
-            $semanas = floor($dias / 7);
-            $meses = floor($dias / 30);
-            $anos = floor($dias / 365);
-
-            echo "<article>";
-            echo "<h2>Totalisando tudo.</h2>";
-            echo "<ul>";
-            echo "<li>Segundos " . number_format($segundos, 3, ",", ".") . "</li>";
-            echo "<li>Minutos " . number_format($minutos, 3, ",", ".") . "</li>";
-            echo "<li>Horas " . number_format($horas, 3, ",", ".") . "</li>";
-            echo "<li>Dias " . number_format($dias, 3, ",", ".") . "</li>";
-            echo "<li>Semanas " . number_format($semanas, 3, ",", ".") . "</li>";
-            echo "<li>Meses " . number_format($meses, 3, ",", ".") . "</li>";
-            echo "<li>Anos " . number_format($anos, 3, ",", ".") . "</li>";
-            echo "</ul>";
-            echo "</article>";
-        }
-        ?>
-    </article>
+    </section>
 </body>
 
 </html>
