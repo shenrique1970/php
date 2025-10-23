@@ -11,7 +11,7 @@
         <h1>Raízes</h1>
     </header>
     <main>
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+        <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
             <label for="numero">Informe o número?</label>
             <input type="number" name="numero">
             <input type="submit" value="Enviar">
