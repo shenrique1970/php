@@ -12,84 +12,75 @@
     <header>
         <h1>Caixa eletrônnico.</h1>
     </header>
-
+    <?php
+    $valor = (int) $_REQUEST["valor"];
+    ?>
     <main>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
             <label for="segundos">Qual valor deseja sacar?</label>
-            <input type="number" name="valor">
+            <input type="number" name="valor" id="valor" min="5" step="5" value="<?= $valor ?? 0 ?>">
+            <p style="font-size: 0.7em;"><sup>*</sup>Notas disponiveis: R$ 100, R$ 50,R$ 10, R$ 5</p>
             <input type="submit" value="Enviar">
         </form>
     </main>
+    <?php
+    // Verifica se o formulário foi enviado via método POST
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Documentação sobre operadores de atribuição em PHP
+        // https://www.php.net/manual/pt_BR/language.operators.assignment.php
+        // Calcula quantas cédulas de R$100 são necessárias
+        $saque = $valor;
+        $resto = $saque;
+        $notaCem = floor($resto / 100);    // floor() arredonda para baixo.
+        $resto = $resto % 100;
 
-    <article>
-        <?php
-        // Verifica se o formulário foi enviado via método POST
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Calcula quantas cédulas de R$50 são necessárias
+        $notaCinquenta = floor($resto / 50);
+        $resto %= 50; // Atualiza o valor restante
 
-            // Documentação sobre operadores de atribuição em PHP
-            // https://www.php.net/manual/pt_BR/language.operators.assignment.php
+        // Calcula quantas cédulas de R$20 são necessárias
+        $notaVinte = floor($resto / 20);
+        $resto %= 20;
 
-            // Captura o valor enviado pelo formulário e converte para inteiro
-            $valor = (int) $_POST["valor"];
+        // Calcula quantas cédulas de R$10 são necessárias
+        $notaDez = floor($resto / 10);
+        $resto %= 10;
 
-            // Calcula quantas cédulas de R$100 são necessárias
-            $cem = (int) ($valor / 100);
-            $valor %= 100; // Atualiza o valor restante após retirar as cédulas de R$100
+        // Calcula quantas cédulas de R$5 são necessárias
+        $notaCinco = floor($resto / 5);
+        $resto %= 5;
+    }
+    ?>
+    <section>
+        <h2>Resultado do Saque</h2>
+        <p>Você solicitou um saque de R$ <?= number_format($valor, 2, ',', '.') ?></p>
+        <p>Serão fornecidas as seguintes cédulas:</p>
+        <article>
+            <ul>
+                <!-- só exibe se tiver mais que 0 -->
+                <?php if ($notaCem > 0) { ?>
+                    <li><img src="img/100-reais.jpg" alt="Cem" width="100px"> X <?= $notaCem ?> </li>
+                <?php } ?>
+                <?php if ($notaCinquenta > 0) { ?>
+                    <li><img src="img/50-reais.jpg" alt="Cinquenta" width="100px"> X <?= $notaCinquenta ?> </li>
+                <?php } ?>
+                <?php if ($notaVinte > 0) { ?>
+                    <li><img src="img/20-reais.jpg" alt="Vinte" width="100px"> X <?= $notaVinte ?> </li>
+                <?php } ?>
+                <?php if ($notaDez > 0) { ?>
+                    <li><img src="img/10-reais.jpg" alt="Dez" width="100px"> X <?= $notaDez ?> </li>
+                <?php } ?>
+                <?php if ($notaCinco > 0) { ?>
+                    <li><img src="img/5-reais.jpg" alt="Cinco" width="100px"> X <?= $notaCinco ?> </li>
+                <?php } ?>
 
-            // Calcula quantas cédulas de R$50 são necessárias
-            $cinquenta = (int) ($valor / 50);
-            $valor %= 50; // Atualiza o valor restante
+            </ul>
 
-            // Calcula quantas cédulas de R$20 são necessárias
-            $vinte = (int) ($valor / 20);
-            $valor %= 20;
-
-            // Calcula quantas cédulas de R$10 são necessárias
-            $dez = (int) ($valor / 10);
-            $valor %= 10;
-
-            // Calcula quantas cédulas de R$5 são necessárias
-            $cinco = (int) ($valor / 5);
-            $valor %= 5;
-
-            // Exibe o valor solicitado
-            echo "<h2>Você solicitou um saque de R$ " . $_POST["valor"] . ",00</h2>";
-
-            // Inicia a lista de cédulas fornecidas
-            echo "<p>Serão fornecidas as seguintes cédulas:</p>";
-            echo "<ul>";
-
-            // Exibe a quantidade de cédulas de R$100, se houver
-            if ($cem > 0) {
-                echo "<li>$cem cédulas de R$ 100,00</li>";
-            }
-
-            // Exibe a quantidade de cédulas de R$50, se houver
-            if ($cinquenta > 0) {
-                echo "<li>$cinquenta cédulas de R$ 50,00</li>";
-            }
-
-            // Exibe a quantidade de cédulas de R$20, se houver
-            if ($vinte > 0) {
-                echo "<li>$vinte cédulas de R$ 20,00</li>";
-            }
-
-            // Exibe a quantidade de cédulas de R$10, se houver
-            if ($dez > 0) {
-                echo "<li>$dez cédulas de R$ 10,00</li>";
-            }
-
-            // Exibe a quantidade de cédulas de R$5, se houver
-            if ($cinco > 0) {
-                echo "<li>$cinco cédulas de R$ 5,00</li>";
-            }
-
-            // Finaliza a lista
-            echo "</ul>";
-        }
-        ?>
-
-    </article>
+            <?php if ($resto > 0) { ?>
+                <p>Não foi possível sacar o valor de R$ <?= $resto ?>,00 com as cédulas disponíveis.</p>
+            <?php } ?>
+        </article>
+    </section>
 </body>
 
 </html>
