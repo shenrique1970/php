@@ -14,6 +14,7 @@
     </header>
 
     <main>
+        <?php //htmlspecialchars($_SERVER['PHP_SELF']) " method="post">?>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
             <label for="segundos">Qual o total de segundo?</label>
             <input type="number" name="segundos">
