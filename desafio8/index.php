@@ -17,23 +17,19 @@
             <input type="submit" value="Enviar">
         </form>
     </main>
-    <?php 
-        $numero = (float) $_POST["numero"];
-    ?>
     <section>
         <h2>Resultado final</h2>
         <?php 
             // https://www.php.net/manual/pt_BR/function.sqrt.php
             // https://www.php.net/manual/pt_BR/function.pow.php
             // https://www.php.net/manual/en/function.number-format.php
+            $numero = (float) $_POST["numero"];
+            echo "Analisando o número " . $numero . "<br>";
             $raiz = sqrt($numero);    // ou usar $numero ** (1/2);
+            echo "A raiz quadrada de " . $numero . " é igual a " . number_format($raiz,3,",",".") . "<br>";
             $cubica = pow($numero, 1/3);    // ou usar $numero ** (1/3);
+            echo "A raiz cúbica de " . $numero . " é igual a " . number_format($cubica,3,",",".") . "<br>";
         ?>  
-        <article>
-            <h3>Analisando o número <?= number_format($numero, 2, ",", ".") ?></h3>
-            <p>Raiz Quadrada: <?= number_format($raiz, 3, ",", ".") ?></p>
-            <p>Raiz Cúbica: <?= number_format($cubica,3,",",".") ?></p>
-        </article>
     </section>
 </body>
 </html>
