@@ -10,17 +10,21 @@
     <header>
         <h1>Analisador de número real</h1>
     </header>
+    <?php 
+        $num = $_POST["num"] ?? 0;
+    ?>
     <main>
         <?php 
-            // $num = $_REQUEST["num"] ?? 0;
-            $num = $_POST["num"] ?? 0;
             $int = (int) $num;
             $frac = $num - $int;
-            
-            echo "<ul><li>A parte inteira é <strong>". number_format($int,0,",",".") ."</strong></li>";
-            echo "<li>A parte fracionaria é <strong>". number_format($frac,3,",",".") ."</strong></li></ul>";
-        
         ?>
+        <article>
+            <ul>
+                <li>A parte inteira é <strong><?php echo number_format($int,0,",","."); ?></strong></li>
+                <li>A parte fracionaria é <strong><?php echo number_format($frac,3,",","."); ?></strong></li>
+            </ul>
+        </article>
+
         <button onclick="javascript:history.go(-1)">Voltar</button>
     </main>
 </body>
