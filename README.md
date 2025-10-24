@@ -26,7 +26,7 @@ https://www.w3schools.com/php/func_var_intval.asp
 - [Antecessor e Sucessor](https://github.com/shenrique1970/php/tree/main/dasafio1)
 - [Sorteador de números](https://github.com/shenrique1970/php/tree/main/desafio2)
 - [Conversor de moedas simples](https://github.com/shenrique1970/php/tree/main/desafio3)
-- [Conversor de dólar consultando API](https://github.com/shenrique1970/php/tree/main/desafio4)
+- [Conversor de dólar consultando API](https://github.com/shenrique1970/php/tree/main/desafio4-api)
 - [Analisando um número Real](https://github.com/shenrique1970/php/tree/main/desafio5)
 - [Analisando uma divisão](https://github.com/shenrique1970/php/tree/main/desafio6)
 - [Salário Mínimo](https://github.com/shenrique1970/php/tree/main/desafio7)
