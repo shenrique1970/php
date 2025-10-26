@@ -19,7 +19,7 @@
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
             <label for="valor">Qual valor deseja sacar?</label>
             <input type="number" name="valor" id="valor" min="1" step="1" value="<?= $valor ?? 0 ?>">
-            <p style="font-size: 0.7em;"><sup>*</sup>Notas disponiveis: R$ 100, R$ 50,R$ 10, R$ 5</p>
+            <p style="font-size: 0.7em;"><sup>*</sup>Notas disponiveis: R$ 100, R$ 50,R$ 10, R$ 5, R$ 2, R$ 1</p>
             <input type="submit" value="Enviar">
         </form>
     </main>
