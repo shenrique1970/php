@@ -12,9 +12,6 @@
     <header>
         <h1>Caixa eletrônnico.</h1>
     </header>
-    <?php
-        $valor = (int) $_REQUEST["valor"] ?? 0;
-    ?>
     <main>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
             <label for="valor">Qual valor deseja sacar?</label>
@@ -26,9 +23,9 @@
     <?php
     // Verifica se o formulário foi enviado via método POST
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $valor = $_REQUEST["valor"] ?? 1;
         // Documentação sobre operadores de atribuição em PHP
         // https://www.php.net/manual/pt_BR/language.operators.assignment.php
-        
         $saque = $valor;    // A variável $valor representa o valor total que será sacado $saque.
         $resto = $saque;    // Inicialmente, o "resto" é igual ao valor total do saque.
         $notaCem = floor($resto / 100);    // Aqui, o código calcula quantas notas de R$100 cabem no valor do saque.
