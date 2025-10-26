@@ -13,12 +13,12 @@
         <h1>Caixa eletrônnico.</h1>
     </header>
     <?php
-    $valor = (int) $_REQUEST["valor"];
+        $valor = (int) $_REQUEST["valor"] ?? 0;
     ?>
     <main>
         <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-            <label for="segundos">Qual valor deseja sacar?</label>
-            <input type="number" name="valor" id="valor" min="5" step="5" value="<?= $valor ?? 0 ?>">
+            <label for="valor">Qual valor deseja sacar?</label>
+            <input type="number" name="valor" id="valor" min="1" step="1" value="<?= $valor ?? 0 ?>">
             <p style="font-size: 0.7em;"><sup>*</sup>Notas disponiveis: R$ 100, R$ 50,R$ 10, R$ 5</p>
             <input type="submit" value="Enviar">
         </form>
@@ -28,27 +28,29 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Documentação sobre operadores de atribuição em PHP
         // https://www.php.net/manual/pt_BR/language.operators.assignment.php
-        // Calcula quantas cédulas de R$100 são necessárias
-        $saque = $valor;
-        $resto = $saque;
-        $notaCem = floor($resto / 100);    // floor() arredonda para baixo.
-        $resto = $resto % 100;
+        
+        $saque = $valor;    // A variável $valor representa o valor total que será sacado $saque.
+        $resto = $saque;    // Inicialmente, o "resto" é igual ao valor total do saque.
+        $notaCem = floor($resto / 100);    // Aqui, o código calcula quantas notas de R$100 cabem no valor do saque.
+        $resto = $resto % 100;    // Após retirar as notas de R$100, calcula-se o restante do valor.
 
-        // Calcula quantas cédulas de R$50 são necessárias
-        $notaCinquenta = floor($resto / 50);
-        $resto %= 50; // Atualiza o valor restante
+        $notaCinquenta = floor($resto / 50);    // Aqui, o código calcula quantas notas de R$50 cabem no valor do saque.
+        $resto %= 50; // Após retirar as notas de R$50, calcula-se o restante do valor.
 
-        // Calcula quantas cédulas de R$20 são necessárias
-        $notaVinte = floor($resto / 20);
-        $resto %= 20;
+        $notaVinte = floor($resto / 20);    // Aqui, o código calcula quantas notas de R$20 cabem no valor do saque.
+        $resto %= 20;    // Após retirar as notas de R$20, calcula-se o restante do valor.
 
-        // Calcula quantas cédulas de R$10 são necessárias
-        $notaDez = floor($resto / 10);
-        $resto %= 10;
+        $notaDez = floor($resto / 10);    // Aqui, o código calcula quantas notas de R$10 cabem no valor do saque.
+        $resto %= 10;    // Após retirar as notas de R$10, calcula-se o restante do valor.
 
-        // Calcula quantas cédulas de R$5 são necessárias
-        $notaCinco = floor($resto / 5);
-        $resto %= 5;
+        $notaCinco = floor($resto / 5);  // Aqui, o código calcula quantas notas de R$5 cabem no valor do saque.
+        $resto %= 5;   // Após retirar as notas de R$5, calcula-se o restante do valor.
+
+        $notaDois = floor($resto / 2);  // Aqui, o código calcula quantas notas de R$2 cabem no valor do saque.
+        $resto %= 2;   // Após retirar as notas de R$2, calcula-se o restante do valor.
+
+        $notaUm = floor($resto / 1);  // Aqui, o código calcula quantas notas de R$1 cabem no valor do saque.
+        $resto %= 1;   // Após retirar as notas de R$1, calcula-se o restante do valor.
     }
     ?>
     <section>
@@ -73,7 +75,12 @@
                 <?php if ($notaCinco > 0) { ?>
                     <li><img src="img/5-reais.jpg" alt="Cinco" width="100px"> X <?= $notaCinco ?> </li>
                 <?php } ?>
-
+                <?php if ($notaDois > 0) { ?>
+                    <li><img src="img/2-reais.jpg" alt="Dois" width="100px"> X <?= $notaDois ?> </li>
+                <?php } ?>
+                <?php if ($notaUm > 0) { ?>
+                    <li><img src="img/1-real.jpg" alt="Um" width="100px"> X <?= $notaUm ?> </li>
+                <?php } ?>
             </ul>
 
             <?php if ($resto > 0) { ?>
