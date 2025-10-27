@@ -21,6 +21,9 @@
         </form>
     </main>
     <?php
+    // Inicializa todas as variáveis com valor zero
+    $valor = 0;
+    $notaCem = $notaCinquenta = $notaVinte = $notaDez = $notaCinco = $notaDois = $notaUm = $resto = 0;
     // Verifica se o formulário foi enviado via método POST
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $valor = $_REQUEST["valor"] ?? 1;
