@@ -14,7 +14,7 @@
     </header>
     <?php
     // Inicializa todas as variáveis com valor zero
-    $ano = $anoFuturo = 0;
+    $ano = $anoFuturo = $anoNascimento = $anoAtual = $idade = $idadeFutura = 0;
     ?>
     <main>
         <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
