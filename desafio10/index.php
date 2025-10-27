@@ -12,6 +12,10 @@
     <header>
         <h1>Cálculo de Idade.</h1>
     </header>
+    <?php
+    // Inicializa todas as variáveis com valor zero
+    $ano = $anoFuturo = 0;
+    ?>
     <main>
         <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
             <label for="ano">Informe o ano que nasceu</label>
