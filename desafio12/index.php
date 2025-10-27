@@ -25,6 +25,8 @@
     </main>
     <?php 
         // https://www.youtube.com/watch?v=qEsWGf_Es3A&list=PLHz_AreHm4dlFPrCXCmd5g92860x_Pbr_&index=43
+        // Inicializa todas as variáveis com valor zero
+        // inicializa todas as variáveis
         $sobra = $total;
         $semana = (int) ($sobra / 604_800);
         $sobra = $sobra % 604_800;
