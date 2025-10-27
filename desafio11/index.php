@@ -12,6 +12,7 @@
     </header>
 
     <?php
+    // Inicializando todas as variáveis
     $preco = $percentual = $valorAjuste = $precoAjustado = null;
     // é uma forma abreviada de inicializar várias variáveis ao mesmo tempo com o mesmo valor — neste caso, null
     // ?? — Operador de coalescência nula (PHP 7+) $valor = $_POST["campo"] ?? "valor padrão";
