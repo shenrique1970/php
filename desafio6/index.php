@@ -13,22 +13,28 @@
         <h1>Anatomia de uma divisão.</h1>
     </header>
     <?php
-        $valoresDefinidos = isset($_GET['v1']) && isset($_GET['v2']);
-        if ($valoresDefinidos) {
-            $valor1 = (int) $_GET['v1'];
-            $valor2 = (int) $_GET['v2'];
+        // Receber os valores via POST
+        $valor1 = isset($_POST['v1']) ? (int) $_POST['v1'] : 0;
+        $valor2 = isset($_POST['v2']) ? (int) $_POST['v2'] : 0;
+        // Verificar se os valores foram definidos
+        $valoresDefinidos = isset($_POST['v1']) && isset($_POST['v2']);
+    ?>
+    <?php
 
-            if ($valor2 !== 0) {
-                $quo = intdiv($valor1, $valor2);
-                $sub = $quo * $valor2;
-                $res = $valor1 % $valor2;
-            } else {
-                $quo = $sub = $res = "Indefinido";
-            }
+    if ($valoresDefinidos) {
+        // Calcular quociente, subtração e resto
+        // Evitar divisão por zero
+        if ($valor2 !== 0) {
+            $quo = intdiv($valor1, $valor2);
+            $sub = $quo * $valor2;
+            $res = $valor1 % $valor2;
         } else {
-            echo "<p>Preencha os dois valores para ver a estrutura da divisão.</p>";
-            $valor1 = $valor2 = $quo = $sub = $res = "";
+            $quo = $sub = $res = "Indefinido";
         }
+    } else {
+        echo "<p>Preencha os dois valores para ver a estrutura da divisão.</p>";
+        $valor1 = $valor2 = $quo = $sub = $res = "";
+    }
     ?>
     <main>
         <!--?= htmlspecialchars($_SERVER['PHP_SELF']) envia o formulária pra elel mesmo-->
