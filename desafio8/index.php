@@ -18,8 +18,13 @@
         </form>
     </main>
     <?php 
-        $numero = (float) $_POST["numero"];
-    ?>
+        $numero = 0;
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST["numero"]) && $_POST["numero"] !== "") {
+                $numero = (float) $_POST["numero"];
+            }
+        }
+        ?>
     <section>
         <h2>Resultado final</h2>
         <?php 
