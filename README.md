@@ -37,3 +37,5 @@ https://www.w3schools.com/php/func_var_intval.asp
 - [Calculadora de tempo](https://github.com/shenrique1970/php/tree/main/desafio12)
 - [Caixa Eletrônico](https://github.com/shenrique1970/php/tree/main/desafio13)
 
+### Sobre padrão deprojetos em PHP.
+https://refactoring.guru/pt-br/design-patterns/php
