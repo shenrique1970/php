@@ -40,7 +40,7 @@
         public string $profissao;
         public bool $opcao;
 
-        // metodo construto exigindo quatro argumentos
+        // metodo construto exigindo quatro
         public function __construct($nome, $idade, $profissao, $opcao)
         {
             $this->nome = $nome;
@@ -79,6 +79,11 @@
     } else {
         echo "<p>Por favor, preencha o formulário acima.</p>";
     }
+    //$pessoa1 = new Pessoa('sergio', 55, 'programador', 1);
+    //echo $pessoa1->apresentar() . "<br>";
+    //echo $pessoa1->condicao() . "<br>";
+    //echo $pessoa1->empregado();
+
     ?>
 
 </body>
