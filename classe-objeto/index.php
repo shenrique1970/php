@@ -40,6 +40,15 @@
         public string $profissao;
         public bool $opcao;
 
+        public function __construct($nome, $idade, $profissao, $opcao)
+        {
+            $this->nome = $nome;
+            $this->idade = $idade;
+            $this->profissao = $profissao;
+            $this->opcao = $opcao;
+        }
+
+
         public function apresentar(): string
         {
             return "Olá, meu nome é " . $this->nome . " e eu tenho " . $this->idade . " anos.";
@@ -55,13 +64,13 @@
             return $this->opcao ? "Estou trabalhando. Sou um(a) " . $this->profissao : "Não estou trabalhando.";
         }
     }
-    
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $pessoa = new Pessoa();
-        $pessoa->nome = $nome;
-        $pessoa->idade = (int) $idade;
-        $pessoa->profissao = $profissao;
-        $pessoa->opcao = $opcao;
+        $pessoa = new Pessoa($nome, (int) $idade, $profissao, $opcao);
+        //$pessoa->nome = $nome;
+        //$pessoa->idade = (int) $idade;
+        //$pessoa->profissao = $profissao;
+        //$pessoa->opcao = $opcao;
 
         echo "<p>" . $pessoa->apresentar() . "</p>";
         echo "<p>" . $pessoa->condicao() . "</p>";
