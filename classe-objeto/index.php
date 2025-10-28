@@ -40,6 +40,7 @@
         public string $profissao;
         public bool $opcao;
 
+        // metodo construto exigindo quatro argumentos
         public function __construct($nome, $idade, $profissao, $opcao)
         {
             $this->nome = $nome;
