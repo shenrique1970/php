@@ -55,7 +55,7 @@
             return $this->opcao ? "Estou trabalhando. Sou um(a) " . $this->profissao : "Não estou trabalhando.";
         }
     }
-
+    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pessoa = new Pessoa();
         $pessoa->nome = $nome;
