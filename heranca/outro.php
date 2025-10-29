@@ -39,4 +39,11 @@ class LoginController extends BaseController
     }
 }
 
+$home = new HomeController();
+$home->index();
+
+$login = new LoginController();
+$login->autenticar("admin", "1234");
+
+
 ?>
