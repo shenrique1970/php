@@ -16,7 +16,8 @@ class BaseController
     }
 }
 
-// HomeController herda de BaseController
+// HomeController herdam de BaseController
+// Métodos renderView() e redirect() são compartilhados pela classe apai
 class HomeController extends BaseController
 {
     public function index()
@@ -26,7 +27,8 @@ class HomeController extends BaseController
     }
 }
 
-// loginController herda de BaseController
+// loginController herdam de BaseController
+// Métodos renderView() e redirect() são compartilhados pela classe pai
 class LoginController extends BaseController
 {
     public function autenticar(string $usuario, string $senha)
