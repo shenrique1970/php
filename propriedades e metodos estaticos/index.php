@@ -29,9 +29,10 @@
     // ClassName::	Usado fora da classe para acessar membros estáticos
     echo Utilidades::saudacao("Sérgio"); // Olá, Sérgio! Bem-vindo à versão 1.0.0
     echo "<br>";
+    // operador de resoluão de escopo :: permite acesso a uma constante. a uma propriedade estatica. ou metodo estatico...
     echo "Versão do sistema: " . Utilidades::$versao;
     ?>
-    
+
     <h2>Exemplo 2: Contador de instâncias com propriedade estática</h2>
     <?php
     // Exemplo 2: Contador de instâncias com propriedade estática
