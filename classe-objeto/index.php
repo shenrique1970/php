@@ -33,14 +33,17 @@
     $profissao = $_POST['profissao'] ?? '';
     $opcao = isset($_POST['opcao']) ? true : false; // checkbox: true se marcado, false se não
 
+    // É um modelo que define a estrutura e o comportamento de objetos semelhantes.
     class Pessoa
     {
+        // Atributos - São as propriedades, características ou variáveis de uma classe. Definem o estado de um objeto.
         public string $nome;
         public int $idade;
         public string $profissao;
         public bool $opcao;
-
-        // metodo construto exigindo quatro
+        
+        // __construct é um Método - uma função especial que é chamada automaticamente toda vez que um novo objeto de uma classe é criado. Sua principal função é inicializar o objeto.
+        // -> operador de objeto - :: operador de resoluçãao de escopo
         public function __construct($nome, $idade, $profissao, $opcao)
         {
             $this->nome = $nome;
@@ -49,7 +52,7 @@
             $this->opcao = $opcao;
         }
 
-
+        // Métodos - São as ações, funções ou comportamentos que um objeto pode realizar.
         public function apresentar(): string
         {
             return "Olá, meu nome é " . $this->nome . " e eu tenho " . $this->idade . " anos.";
