@@ -11,7 +11,7 @@
     <h1>Exemplo 1: Classe com método e propriedade estática</h1>
 
     <?php
-    // Exemplo 1: Classe com método e propriedade estática
+    // Exemplo 1: Classe com propriedades e métodos estáticos
     class Utilidades
     {
         // Propriedade estática
@@ -21,6 +21,7 @@
         public static function saudacao(string $nome): string
         {
             // self::	Usado dentro da classe para acessar membros estáticos
+            // :: operador de resoluçãao de escopo
             return "Olá, $nome! Bem-vindo à versão " . self::$versao;
         }
     }
