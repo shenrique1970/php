@@ -18,7 +18,10 @@ echo Configuracao::AMBIENTE;   // Saída: produção
 class Animal
 {
     // Constante da classe Animal
-    public const TIPO = "Mamífero";
+    const TIPO = "Mamífero";
+    function mostrarTipo() {
+        echo self::TIPO . "\n";
+    }
 }
 
 // Define a classe Cachorro que herda de Animal precisa ser abstract, sua falta da erro.
@@ -34,6 +37,16 @@ echo "<br>";
 
 // Acessa a constante definida na própria classe Cachorro
 echo Cachorro::SOM;  // Saída: Au au!
+echo "<br>";
+
+
+abstract class Gato extends Animal
+{
+    // Constante específica da classe GATO
+    public const SOM = "Miau miau!";
+}
+echo Gato::SOM;
+echo "<br>";
 ?>
 
 
