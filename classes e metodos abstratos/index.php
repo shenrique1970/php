@@ -16,6 +16,8 @@ abstract class Animal {
     }
 }
 
+// -> operador de objeto - :: operador de resoluçãao de escopo
+
 class Cachorro extends Animal {
     public function emitirSom(): string {
         return "Au au!";
