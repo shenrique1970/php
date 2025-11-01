@@ -1,10 +1,8 @@
 <?php
-// Define a interface que Define métodos obrigatórios - Exemplo 1: Interface Autenticavel.
 interface Autenticavel {
     public function login(string $usuario, string $senha): bool;
 }
 
-// Classe Usuario que implementa a interface. implements - Classe se compromete a implementar os métodos da interface
 class Usuario implements Autenticavel {
     private string $usuario = "admin";
     private string $senha = "1234";
@@ -14,32 +12,56 @@ class Usuario implements Autenticavel {
     }
 }
 
-// Exemplo de uso
-$u = new Usuario();
-if ($u->login("admin", "1234")) {
-    echo "Login bem-sucedido!";
-} else {
-    echo "Falha no login.";
-}
+// Processa o formulário
+$mensagem = "";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $usuario = $_POST['usuario'] ?? '';
+    $senha = $_POST['senha'] ?? '';
 
-// Exemplo 2: Interface com múltiplos métodos
-interface FormaGeometrica {
-    public function calcularArea(): float;
-    public function calcularPerimetro(): float;
-}
-
-class Circulo implements FormaGeometrica {
-    private float $raio;
-
-    public function __construct(float $raio) {
-        $this->raio = $raio;
-    }
-
-    public function calcularArea(): float {
-        return pi() * pow($this->raio, 2);
-    }
-
-    public function calcularPerimetro(): float {
-        return 2 * pi() * $this->raio;
+    $u = new Usuario();
+    if ($u->login($usuario, $senha)) {
+        $mensagem = "Login bem-sucedido!";
+    } else {
+        $mensagem = "Usuário ou senha inválidos.";
     }
 }
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login com Interface</title>
+</head>
+<body>
+    <h1>Autenticação</h1>
+    <form method="post">
+        <label for="usuario">Usuário:</label>
+        <input type="text" name="usuario" id="usuario" required><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" id="senha" required><br><br>
+
+        <input type="submit" value="Entrar">
+    </form>
+
+    <?php if ($mensagem): ?>
+        <p><?php echo $mensagem; ?></p>
+    <?php endif; ?>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
