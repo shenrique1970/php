@@ -1,26 +1,4 @@
 <?php
-// Define a interface que Define métodos obrigatórios - Exemplo 1: Interface Autenticavel.
-interface Autenticavel {
-    public function login(string $usuario, string $senha): bool;
-}
-
-// Classe Usuario que implementa a interface. implements - Classe se compromete a implementar os métodos da interface
-class Usuario implements Autenticavel {
-    private string $usuario = "admin";
-    private string $senha = "1234";
-
-    public function login(string $usuario, string $senha): bool {
-        return $usuario === $this->usuario && $senha === $this->senha;
-    }
-}
-
-// Exemplo de uso
-$u = new Usuario();
-if ($u->login("admin", "1234")) {
-    echo "Login bem-sucedido!";
-} else {
-    echo "Falha no login.";
-}
 
 // Exemplo 2: Interface com múltiplos métodos
 interface FormaGeometrica {
@@ -43,3 +21,11 @@ class Circulo implements FormaGeometrica {
         return 2 * pi() * $this->raio;
     }
 }
+
+
+// Criando um objeto da classe Circulo
+$meuCirculo = new Circulo(5); // raio = 5
+
+// Usando os métodos definidos pela interface
+echo "Área do círculo: " . $meuCirculo->calcularArea() . "<br>";
+echo "Perímetro do círculo: " . $meuCirculo->calcularPerimetro();
