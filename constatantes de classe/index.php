@@ -1,4 +1,10 @@
 <?php
+
+define('NAME', 'Sérgio');
+var_dump(NAME);
+echo "<br>";
+print_r(NAME);
+echo "<br>";
 // Exemplo 1: Constante simples em uma classe
 class Configuracao
 {
